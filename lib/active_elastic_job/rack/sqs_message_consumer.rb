@@ -104,7 +104,7 @@ module ActiveElasticJob
       def execute_periodic_task(request)
         job_name = request.headers['X-Aws-Sqsd-Taskname']
         job = job_name.constantize.new
-        job.perform_now
+        job.perform_later
       end
 
       def originates_from_gem?(request)
